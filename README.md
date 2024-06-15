@@ -1,10 +1,8 @@
-## Render Chart.js
+## Render Chart
 
-This is a plugin to render data using [Chart.js](https://www.chartjs.org/docs/latest/). 
+This is a plugin to visualize data by drawing charts.
 
 [Learn how to develop Typing Mind plugins here](https://www.typingmind.com/plugins-docs).
-
-This plugin demonstrates how to render Chart.js charts to the end users.
 
 ### Example usage:
 

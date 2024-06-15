@@ -1,10 +1,10 @@
 {
-    "id": "render_chart_js",
+    "id": "render_chart",
     "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
-    "emoji": "📊",
-    "title": "Render Chart.js",
+    "title": "Render Chart",
+    "iconURL": "https://raw.githubusercontent.com/TypingMind/render-chart/2e93f0a25b69fa008c91450502c70bc965b5a194/icon.jpeg",
     "openaiSpec": {
-        "name": "generate_chart_js",
+        "name": "generate_chart",
         "parameters": {
             "type": "object",
             "required": [
@@ -67,7 +67,11 @@
                                         "description": "Label for the dataset"
                                     },
                                     "borderColor": {
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "Border color of the item"
+                                        },
                                         "description": "Border color for the dataset"
                                     },
                                     "borderWidth": {
@@ -75,8 +79,35 @@
                                         "description": "Border width for the dataset"
                                     },
                                     "backgroundColor": {
-                                        "type": "string",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "Color of the item"
+                                        },
                                         "description": "Background color for the dataset"
+                                    },
+                                    "borderSkipped": {
+                                        "type": "string",
+                                        "description": "This setting is used to avoid drawing the bar stroke at the base of the fill, or disable the border radius. In general, this does not need to be changed except when creating chart types that derive from a bar chart."
+                                    },
+                                    "borderRadius": {
+                                        "type": "number",
+                                        "description": "If this value is a number, it is applied to all corners of the rectangle (topLeft, topRight, bottomLeft, bottomRight), except corners touching the borderSkipped. If this value is an object, the topLeft property defines the top-left corners border radius. Similarly, the topRight, bottomLeft, and bottomRight properties can also be specified. Omitted corners and those touching the borderSkipped are skipped. For example if the top border is skipped, the border radius for the corners topLeft and topRight will be skipped as well."
+                                    },
+                                    "stepped": {
+                                        "type": "string",
+                                        "enum": [
+                                            "false",
+                                            "true",
+                                            "before",
+                                            "after",
+                                            "middle"
+                                        ],
+                                        "description": "false: No Step Interpolation (default); true: Step-before Interpolation (eq. before); 'before': Step-before Interpolation; 'after': Step-after Interpolation; 'middle': Step-middle.\n InterpolationIf the stepped value is set to anything other than false, tension will be ignored."
+                                    },
+                                    "tension": {
+                                        "type": "number",
+                                        "description": "Bezier curve tension of the line. Set to 0 to draw straightlines. This option is ignored if monotone cubic interpolation is used."
                                     }
                                 }
                             },
