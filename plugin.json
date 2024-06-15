@@ -2,7 +2,7 @@
     "id": "render_chart",
     "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
     "title": "Render Chart",
-    "iconURL": "https://raw.githubusercontent.com/TypingMind/render-chart/2e93f0a25b69fa008c91450502c70bc965b5a194/icon.jpeg",
+    "iconURL": "https://raw.githubusercontent.com/TypingMind/render-chart/f7ee3e95d86338c4fe05a3c547f20157608ebecb/icon.png",
     "openaiSpec": {
         "name": "generate_chart",
         "parameters": {
