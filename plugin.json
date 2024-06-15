@@ -1,0 +1,202 @@
+{
+    "id": "render_chart",
+    "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
+    "title": "Render Chart",
+    "iconURL": "https://raw.githubusercontent.com/TypingMind/render-chart/2e93f0a25b69fa008c91450502c70bc965b5a194/icon.jpeg",
+    "openaiSpec": {
+        "name": "generate_chart",
+        "parameters": {
+            "type": "object",
+            "required": [
+                "title",
+                "chartType",
+                "data",
+                "options"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "The title of the chart"
+                },
+                "chartType": {
+                    "enum": [
+                        "line",
+                        "bar",
+                        "doughnut",
+                        "pie",
+                        "radar",
+                        "polarArea",
+                        "bubble",
+                        "scatter"
+                    ],
+                    "type": "string",
+                    "description": "Type of the chart to render"
+                },
+                "data": {
+                    "type": "object",
+                    "required": [
+                        "labels",
+                        "datasets"
+                    ],
+                    "properties": {
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Labels for the chart"
+                        },
+                        "datasets": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "label",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        },
+                                        "description": "Data points for the dataset"
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "description": "Label for the dataset"
+                                    },
+                                    "fill": {
+                                        "type": "object",
+                                        "description": "Both line and radar charts support a fill option on the dataset object which can be used to create space between two datasets or a dataset and a boundary, i.e. the scale"
+                                    },
+                                    "borderColor": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "Border color of the item"
+                                        },
+                                        "description": "Border color for the dataset"
+                                    },
+                                    "borderWidth": {
+                                        "type": "number",
+                                        "description": "Border width for the dataset"
+                                    },
+                                    "backgroundColor": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "Color of the item"
+                                        },
+                                        "description": "Background color for the dataset"
+                                    },
+                                    "borderSkipped": {
+                                        "type": "string",
+                                        "description": "This setting is used to avoid drawing the bar stroke at the base of the fill, or disable the border radius. In general, this does not need to be changed except when creating chart types that derive from a bar chart."
+                                    },
+                                    "borderRadius": {
+                                        "type": "number",
+                                        "description": "If this value is a number, it is applied to all corners of the rectangle (topLeft, topRight, bottomLeft, bottomRight), except corners touching the borderSkipped. If this value is an object, the topLeft property defines the top-left corners border radius. Similarly, the topRight, bottomLeft, and bottomRight properties can also be specified. Omitted corners and those touching the borderSkipped are skipped. For example if the top border is skipped, the border radius for the corners topLeft and topRight will be skipped as well."
+                                    },
+                                    "stepped": {
+                                        "type": "string",
+                                        "enum": [
+                                            "false",
+                                            "true",
+                                            "before",
+                                            "after",
+                                            "middle"
+                                        ],
+                                        "description": "false: No Step Interpolation (default); true: Step-before Interpolation (eq. before); 'before': Step-before Interpolation; 'after': Step-after Interpolation; 'middle': Step-middle.\n InterpolationIf the stepped value is set to anything other than false, tension will be ignored."
+                                    },
+                                    "tension": {
+                                        "type": "number",
+                                        "description": "Bezier curve tension of the line. Set to 0 to draw straightlines. This option is ignored if monotone cubic interpolation is used."
+                                    }
+                                }
+                            },
+                            "description": "Datasets to be rendered in the chart"
+                        }
+                    },
+                    "description": "Data to be rendered in the chart"
+                },
+                "options": {
+                    "type": "object",
+                    "description": "Additional options for the Chart.js chart",
+                    "properties": {
+                        "responsive": {
+                            "type": "boolean",
+                            "description": "When true, the chart will re-render if the browser window is resized."
+                        },
+                        "maintainAspectRatio": {
+                            "type": "boolean",
+                            "description": "When true, the chart maintains the original canvas aspect ratio (width/height) when resizing."
+                        },
+                        "aspectRatio": {
+                            "type": "number",
+                            "description": "Canvas aspect ratio (i.e. width / height, a value of 1 representing a square canvas). Note that this option is ignored if the height is explicitly defined either as attribute or via the style. The default value varies by chart type; Radial charts (doughnut, pie, polarArea, radar) default to 1 and others default to 2."
+                        },
+                        "scales": {
+                            "type": "object",
+                            "description": "Configuration for chart scales",
+                            "properties": {
+                                "y": {
+                                    "type": "object",
+                                    "properties": {
+                                        "beginAtZero": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "x": {
+                                    "type": "object",
+                                    "properties": {
+                                        "beginAtZero": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "plugins": {
+                            "type": "object",
+                            "properties": {
+                                "legend": {
+                                    "type": "object",
+                                    "properties": {
+                                        "display": {
+                                            "type": "boolean",
+                                            "description": "Is the legend shown? default = true"
+                                        },
+                                        "position": {
+                                            "type": "string",
+                                            "enum": [
+                                                "top",
+                                                "left",
+                                                "right",
+                                                "bottom",
+                                                "chartArea"
+                                            ],
+                                            "description": "Position of the legend. When using the 'chartArea' option the legend position is at the moment not configurable, it will always be on the left side of the chart in the middle."
+                                        }
+                                    }
+                                },
+                                "tooltip": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "description": "Generate a Chart.js chart"
+    },
+    "implementationType": "javascript",
+    "outputType": "render_html"
+}
