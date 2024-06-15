@@ -1,0 +1,168 @@
+{
+    "id": "render_chart_js",
+    "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
+    "emoji": "📈",
+    "title": "Render Chart.js",
+    "openaiSpec": {
+        "name": "generate_chart_js",
+        "parameters": {
+            "type": "object",
+            "required": [
+                "title",
+                "chartType",
+                "data",
+                "options"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "The title of the chart"
+                },
+                "chartType": {
+                    "enum": [
+                        "area",
+                        "line",
+                        "bar",
+                        "doughnut",
+                        "pie",
+                        "radar",
+                        "polarArea",
+                        "bubble",
+                        "scatter"
+                    ],
+                    "type": "string",
+                    "description": "Type of the chart to render"
+                },
+                "data": {
+                    "type": "object",
+                    "required": [
+                        "labels",
+                        "datasets"
+                    ],
+                    "properties": {
+                        "labels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Labels for the chart"
+                        },
+                        "datasets": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "label",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        },
+                                        "description": "Data points for the dataset"
+                                    },
+                                    "label": {
+                                        "type": "string",
+                                        "description": "Label for the dataset"
+                                    },
+                                    "borderColor": {
+                                        "type": "string",
+                                        "description": "Border color for the dataset"
+                                    },
+                                    "borderWidth": {
+                                        "type": "number",
+                                        "description": "Border width for the dataset"
+                                    },
+                                    "backgroundColor": {
+                                        "type": "string",
+                                        "description": "Background color for the dataset"
+                                    }
+                                }
+                            },
+                            "description": "Datasets to be rendered in the chart"
+                        }
+                    },
+                    "description": "Data to be rendered in the chart"
+                },
+                "options": {
+                    "type": "object",
+                    "description": "Additional options for the Chart.js chart",
+                    "properties": {
+                        "responsive": {
+                            "type": "boolean",
+                            "description": "When true, the chart will re-render if the browser window is resized."
+                        },
+                        "maintainAspectRatio": {
+                            "type": "boolean",
+                            "description": "When true, the chart maintains the original canvas aspect ratio (width/height) when resizing."
+                        },
+                        "aspectRatio": {
+                            "type": "number",
+                            "description": "Canvas aspect ratio (i.e. width / height, a value of 1 representing a square canvas). Note that this option is ignored if the height is explicitly defined either as attribute or via the style. The default value varies by chart type; Radial charts (doughnut, pie, polarArea, radar) default to 1 and others default to 2."
+                        },
+                        "scales": {
+                            "type": "object",
+                            "description": "Configuration for chart scales",
+                            "properties": {
+                                "y": {
+                                    "type": "object",
+                                    "properties": {
+                                        "beginAtZero": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "x": {
+                                    "type": "object",
+                                    "properties": {
+                                        "beginAtZero": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "plugins": {
+                            "type": "object",
+                            "properties": {
+                                "legend": {
+                                    "type": "object",
+                                    "properties": {
+                                        "display": {
+                                            "type": "boolean",
+                                            "description": "Is the legend shown? default = true"
+                                        },
+                                        "position": {
+                                            "type": "string",
+                                            "enum": [
+                                                "top",
+                                                "left",
+                                                "right",
+                                                "bottom",
+                                                "chartArea"
+                                            ],
+                                            "description": "Position of the legend. When using the 'chartArea' option the legend position is at the moment not configurable, it will always be on the left side of the chart in the middle."
+                                        }
+                                    }
+                                },
+                                "tooltip": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "description": "Generate a Chart.js chart"
+    },
+    "implementationType": "javascript",
+    "outputType": "render_html"
+}
