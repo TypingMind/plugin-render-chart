@@ -4,7 +4,7 @@
     "title": "Render Chart",
     "iconURL": "https://raw.githubusercontent.com/TypingMind/render-chart/f7ee3e95d86338c4fe05a3c547f20157608ebecb/icon.png",
     "openaiSpec": {
-        "name": "generate_chart",
+        "name": "render_chart",
         "parameters": {
             "type": "object",
             "required": [
