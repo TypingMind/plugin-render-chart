@@ -1,7 +1,7 @@
 {
     "id": "render_chart_js",
     "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
-    "emoji": "📈",
+    "emoji": "📊",
     "title": "Render Chart.js",
     "openaiSpec": {
         "name": "generate_chart_js",
