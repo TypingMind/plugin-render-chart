@@ -20,7 +20,6 @@
                 },
                 "chartType": {
                     "enum": [
-                        "area",
                         "line",
                         "bar",
                         "doughnut",
