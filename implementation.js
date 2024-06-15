@@ -1,4 +1,4 @@
-function generate_chart(params) {
+function render_chart(params) {
     const { chartType, options, title, data } = params;
     const dataString = JSON.stringify(data)
         .replace(/\\/g, '\\\\')
