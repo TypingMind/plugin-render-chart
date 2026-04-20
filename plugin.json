@@ -158,6 +158,50 @@
                     }
                   }
                 },
+                "title": {
+                  "type": "object",
+                  "properties": {
+                    "display": {
+                      "type": "boolean",
+                      "description": "Is the title shown? Default: false"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Title text to display. If specified as an array, text is rendered on multiple lines."
+                    },
+                    "position": {
+                      "type": "string",
+                      "enum": [
+                        "top",
+                        "left",
+                        "right",
+                        "bottom"
+                      ],
+                      "description": "Position of the title. Default: 'top'"
+                    },
+                    "align": {
+                      "type": "string",
+                      "enum": [
+                        "start",
+                        "center",
+                        "end"
+                      ],
+                      "description": "Alignment of the title. Default: 'center'"
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "Color of the title text."
+                    },
+                    "fullSize": {
+                      "type": "boolean",
+                      "description": "Marks that this box should take the full width/height of the canvas. If false, the box is sized and placed above/beside the chart area. Default: true"
+                    },
+                    "padding": {
+                      "type": "number",
+                      "description": "Padding to apply around the title. Only top and bottom are implemented. Default: 10"
+                    }
+                  }
+                },
                 "tooltip": {
                   "type": "object",
                   "properties": {
