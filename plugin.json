@@ -2,7 +2,7 @@
   "id": "render_chart",
   "uuid": "9cff2e31-1e10-4b45-b2b7-87edc20865bc",
   "title": "Render Chart",
-  "iconURL": "https://raw.githubusercontent.com/TypingMind/plugin-render-chart/main/icon.png",
+  "iconURL": "https://custom.typingmind.com/assets/plugins/render-chart.webp",
   "openaiSpec": {
     "name": "render_chart",
     "parameters": {
